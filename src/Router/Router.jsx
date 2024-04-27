@@ -4,13 +4,13 @@ import { Menu } from "../Pages/Menu";
 
 export const router = createBrowserRouter([
     {
-    path:'/',
-    element:<App/>,
-    children:[
-        {
-        path:'/Menu',
-        element:<Menu/>
-}
-]
-  }
+        path: "/",
+        element: <App />,
+        children: [
+            {
+                path: "/Menu",
+                element: <Menu />,
+            },
+        ],
+    },
 ]);

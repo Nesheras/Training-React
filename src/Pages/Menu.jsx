@@ -1,5 +1,3 @@
-export function Menu(){
-    return(
-        <p>Меню</p>
-    )
+export function Menu() {
+    return <p>Меню</p>;
 }
