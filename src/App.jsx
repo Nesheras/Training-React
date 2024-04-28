@@ -1,13 +1,25 @@
 import { Link, Outlet } from "react-router-dom";
 import "./App.css";
 
+import { CardContainer } from "./Components/CardContainer/CardContainer";
+import { Header } from "./Components/Header/Header";
+import { Button } from "./Components/Button/Button";
+import { ButtonContainer } from "./Components/ButtonContainer/ButtonContainer";
+import { Logo } from "./Components/Header/Logo/Logo";
+import { Search } from "./Components/Header/Search/Search";
+
 function App() {
     return (
         <>
-            <div>Я App</div>
-            <Link to="/"> Вернуться обратно</Link>
-            <Link to="/menu">Зайти в меню</Link>
-            <Outlet />
+            <Header>
+                <Logo />
+                <div>
+                    <Search />
+                    <Button text={"Войти"} />
+                </div>
+            </Header>
+            <CardContainer />
+            <ButtonContainer></ButtonContainer>
         </>
     );
 }

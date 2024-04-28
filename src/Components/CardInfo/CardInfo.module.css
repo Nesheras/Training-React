@@ -1,0 +1,9 @@
+.container {
+    height: 500px;
+    width: 800px;
+    display: flex;
+    justify-content: space-around;
+    position: fixed;
+    background: black;
+    top: 20%;
+}
