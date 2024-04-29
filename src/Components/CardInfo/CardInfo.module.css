@@ -2,8 +2,23 @@
     height: 500px;
     width: 800px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    align-items: center;
     position: fixed;
     background: black;
     top: 20%;
+    left: 29%;
+}
+h2 {
+    font-weight: 800;
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+.exit {
+    height: 100px;
+    width: 50px;
+    fill: wheat;
+    position: absolute;
+    top: 0px;
+    right: 10px;
 }

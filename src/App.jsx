@@ -1,4 +1,4 @@
-import { Link, Outlet } from "react-router-dom";
+import {  Outlet } from "react-router-dom";
 import "./App.css";
 
 import { CardContainer } from "./Components/CardContainer/CardContainer";
@@ -18,6 +18,7 @@ function App() {
                     <Button text={"Войти"} />
                 </div>
             </Header>
+            <Outlet/>
             <CardContainer />
             <ButtonContainer></ButtonContainer>
         </>
