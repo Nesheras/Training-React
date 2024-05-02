@@ -1,34 +1,14 @@
 import { useParams } from "react-router-dom";
 import { Card } from "../Card/Card";
 import style from "./CardInfo.module.css";
-import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useGetFilmsByIdQuery } from "../../App/store/api/kinopoiskApi";
 
 export function CardInfo() {
     const { id } = useParams();
-    const [filmInfo, setFilmInfo] = useState({});
-
-    useEffect(() => {
-        fetch(`https://kinopoiskapiunofficial.tech/api/v2.2/films/${id}`, {
-            method: "GET",
-            headers: {
-                "X-API-KEY": "37a34732-1480-4ba0-a5d5-6a88059ba2ae",
-                "Content-Type": "application/json",
-            },
-        })
-            .then((res) => {
-                if (!res.ok) {
-                    throw new Error("Failed to fetch data");
-                }
-                return res.json();
-            })
-            .then((json) => {
-                setFilmInfo(json);
-            })
-            .catch((err) => {
-                console.log(err);
-            });
-    }, []);
+    const { data, isLoading } = useGetFilmsByIdQuery(id);
+    if (isLoading) return <h1>Loading...</h1>;
+    console.log(data);
 
     return (
         <div className={style.container}>
@@ -54,10 +34,10 @@ export function CardInfo() {
                     />
                 </svg>
             </Link>
-            <Card src={filmInfo.posterUrlPreview} />
+            <Card src={data.posterUrlPreview} />
             <div className="style.containerInfo">
-                <h2>{filmInfo.nameRu}</h2>
-                <p>{filmInfo.description}</p>
+                <h2>{data.nameRu}</h2>
+                <p>{data.description}</p>
             </div>
         </div>
     );
