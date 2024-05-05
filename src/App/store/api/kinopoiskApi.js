@@ -1,6 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { transformAllMovies } from "./transformRespons/transformAllFilms";
 import { transformFilmById } from "./transformRespons/transformResponseByID";
+import { transformSearch } from "./transformRespons/transformSearch";
 
 const API_URL = "https://kinopoiskapiunofficial.tech/api";
 export const FilmsApi = createApi({
@@ -33,8 +34,13 @@ export const FilmsApi = createApi({
                     page,
                 },
             }),
+            transformResponse: transformSearch,
         }),
     }),
 });
 
-export const { useGetTopFilmsQuery, useGetFilmsByIdQuery } = FilmsApi;
+export const {
+    useGetTopFilmsQuery,
+    useGetFilmsByIdQuery,
+    useGetSearchByKeywordQuery,
+} = FilmsApi;

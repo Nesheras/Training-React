@@ -3,12 +3,12 @@ import { Card } from "../Card/Card";
 import style from "./CardInfo.module.css";
 import { Link } from "react-router-dom";
 import { useGetFilmsByIdQuery } from "../../App/store/api/kinopoiskApi";
+import { Button } from "../Button/Button";
 
 export function CardInfo() {
     const { id } = useParams();
     const { data, isLoading } = useGetFilmsByIdQuery(id);
     if (isLoading) return <h1>Loading...</h1>;
-    console.log(data);
 
     return (
         <div className={style.container}>
@@ -38,6 +38,7 @@ export function CardInfo() {
             <div className="style.containerInfo">
                 <h2>{data.nameRu}</h2>
                 <p>{data.description}</p>
+                <Button text={"Добавить в избранное"}> </Button>
             </div>
         </div>
     );

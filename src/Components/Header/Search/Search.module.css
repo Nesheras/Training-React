@@ -1,0 +1,55 @@
+.s form {
+    width: auto;
+    float: right;
+    margin-right: 30px;
+}
+.s input {
+    width: 250px;
+    height: 42px;
+    padding-left: 15px;
+    border-radius: 42px;
+    border: 2px solid #363638;
+    background: #504c44;
+    outline: none;
+    position: relative;
+    transition: 0.3s linear;
+}
+.s input:focus {
+    width: 300px;
+}
+.s button {
+    width: 42px;
+    height: 42px;
+    background: none;
+    border: none;
+    position: relative;
+    top: -2px;
+    right: 0;
+}
+.s button:before {
+    content: "\f002";
+    font-family: FontAwesome;
+    color: #e7f3f3;
+}
+.suggest {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    color: white;
+    background: #504c44;
+    border-radius: 10px;
+    position: absolute;
+    width: 300px;
+
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.suggest li {
+    width: 300px;
+    text-decoration: none;
+    border-bottom: 2px solid black;
+    margin-bottom: 1px;
+}
+link:last-child {
+    border-bottom: none;
+}
