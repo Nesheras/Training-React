@@ -1,13 +1,16 @@
 import { Outlet } from "react-router-dom";
 import "./App.css";
-
 import { Header } from "./Components/Header/Header";
-import { useState } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 
-function App() {
-  
+import { useInitialize } from "./App/store/api/hooks/useInitialize";
 
+function App() {
+    const initializeSuccess = useInitialize();
+
+    if (!initializeSuccess) {
+        return <h1>Загрузка....</h1>;
+    }
     return (
         <>
             <ErrorBoundary

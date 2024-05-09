@@ -1,4 +1,8 @@
 import styleButton from "./Button.module.css";
-export function Button({ text }) {
-    return <button className={styleButton.button}>{text}</button>;
+export function Button({ text, handler }) {
+    return (
+        <button className={styleButton.button} onClick={handler}>
+            {text}
+        </button>
+    );
 }

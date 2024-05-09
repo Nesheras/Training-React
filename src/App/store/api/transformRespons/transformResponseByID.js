@@ -1,6 +1,6 @@
 export const transformFilmById = (film) => {
     return {
-        id: film.kinopoiskId,
+        id: film.kinopoiskId || film.filmId,
         nameRu: film.nameRu || "Нет названия",
         nameOriginal: film.nameOriginal || "Нет названия",
         posterUrl: film.posterUrl || "Нет фото",
