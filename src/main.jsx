@@ -5,7 +5,7 @@ import { Provider } from "react-redux";
 import { store } from "./App/store.js";
 import { RouterProvider } from "react-router-dom";
 import { router } from "./Router/Router.jsx";
-
+import "./firebase.js";
 const container = document.getElementById("root");
 if (container) {
     ReactDOM.createRoot(container).render(

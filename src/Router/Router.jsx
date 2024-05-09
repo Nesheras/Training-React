@@ -6,6 +6,9 @@ import FilmPage from "../Pages/FilmPage/FilmPage";
 import SearchPage from "../Pages/SearchPage/SearchPage";
 import { SignInPage } from "../Pages/SignIn/SignInPage";
 import { SignUpPage } from "../Pages/SignUp/SignUpPage";
+import { FavoritesPage } from "../Pages/FavouritesPage/FavoritesPage";
+import { PrivateRoute } from "./PrivateRoute";
+import { CardContainerInfo } from "../Components/CardInfo/CardContainerInfo";
 
 export const router = createBrowserRouter([
     {
@@ -18,7 +21,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: `/info/:id`,
-                element: <CardInfo />,
+                element: <CardContainerInfo />,
             },
             {
                 path: `/search`,
@@ -28,18 +31,15 @@ export const router = createBrowserRouter([
                 path: `/search/:search`,
                 element: <SearchPage />,
             },
-            //         {
-            //             path: "/film",
-            //             element:  <FilmPage />,
-            //         },
-            //         {
-            //             path: "",
-            //             element: '<PrivateRoute />',
-            //             children: [
-            //                 { path: "favorites", element: <FavoritesPage /> },
-            //                 { path: "history", element: <HistoryPage /> },
-            //             ],
-            //         },
+
+            {
+                path: "",
+                element: <PrivateRoute />,
+                children: [
+                    { path: "favorites", element: <FavoritesPage /> },
+                    //                 { path: "history", element: <HistoryPage /> },
+                ],
+            },
             { path: "/signup", element: <SignUpPage /> },
             { path: "/signin", element: <SignInPage /> },
             //     ],

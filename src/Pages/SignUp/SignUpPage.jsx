@@ -1,17 +1,48 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Form, Input } from "antd";
+import { useDispatch } from "react-redux";
 
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import { Link } from "react-router-dom";
+import { useAuth } from "../../App/store/api/hooks/useAuth";
+import { Navigate } from "react-router-dom";
+import { auth } from "../../firebase";
+import { setUser } from "../../App/store/api/Slices/userSlices";
 
 export function SignUpPage() {
+    const { isAuth } = useAuth();
+    const dispatch = useDispatch();
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
     const onFinish = (values) => {
         console.log("Success:", values);
     };
     const onFinishFailed = (errorInfo) => {
         console.log("Failed:", errorInfo);
     };
+    function handlerChangeMail(e) {
+        setEmail(e.target.value);
+    }
+    function handlerChangePass(e) {
+        setPassword(e.target.value);
+    }
+    function handlerRegister(email, password) {
+        createUserWithEmailAndPassword(auth, email, password)
+            .then(({ user }) => {
+                console.log(user);
+                dispatch(
+                    setUser({
+                        email: user.email,
+                        id: user.uid,
+                    })
+                );
+            })
+            .catch(console.error);
+    }
 
-    return (
+    return isAuth ? (
+        <Navigate to="/" />
+    ) : (
         <div
             style={{
                 display: "flex",
@@ -55,7 +86,12 @@ export function SignUpPage() {
                         },
                     ]}
                 >
-                    <Input style={{ color: "white", background: "#504c44" }} />
+                    <Input
+                        onChange={handlerChangeMail}
+                        type="email"
+                        value={email}
+                        style={{ color: "white", background: "#504c44" }}
+                    />
                 </Form.Item>
 
                 <Form.Item
@@ -70,6 +106,8 @@ export function SignUpPage() {
                     ]}
                 >
                     <Input.Password
+                        onChange={handlerChangePass}
+                        value={password}
                         style={{ color: "white", background: "#504c44" }}
                     />
                 </Form.Item>
@@ -81,9 +119,10 @@ export function SignUpPage() {
                     }}
                 >
                     <Button
+                        onClick={() => handlerRegister(email, password)}
                         style={{ marginBottom: "10px" }}
                         type="primary"
-                        htmlType="submit"
+                        htmlType="button"
                     >
                         Зарегистрироваться
                     </Button>
