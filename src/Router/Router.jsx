@@ -9,6 +9,7 @@ import { SignUpPage } from "../Pages/SignUp/SignUpPage";
 import { FavoritesPage } from "../Pages/FavouritesPage/FavoritesPage";
 import { PrivateRoute } from "./PrivateRoute";
 import { CardContainerInfo } from "../Components/CardInfo/CardContainerInfo";
+import HistoryPage from "../Pages/HistoryPage/HistoryPage";
 
 export const router = createBrowserRouter([
     {
@@ -35,9 +36,10 @@ export const router = createBrowserRouter([
             {
                 path: "",
                 element: <PrivateRoute />,
+
                 children: [
                     { path: "favorites", element: <FavoritesPage /> },
-                    //                 { path: "history", element: <HistoryPage /> },
+                    { path: "history", element: <HistoryPage /> },
                 ],
             },
             { path: "/signup", element: <SignUpPage /> },

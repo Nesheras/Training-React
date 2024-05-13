@@ -11,6 +11,7 @@ function App() {
     if (!initializeSuccess) {
         return <h1>Загрузка....</h1>;
     }
+
     return (
         <>
             <ErrorBoundary

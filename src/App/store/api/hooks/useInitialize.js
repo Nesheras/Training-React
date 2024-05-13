@@ -20,7 +20,7 @@ export const useInitialize = () => {
                     setUser({
                         email: user.email,
                         token: user.accessToken,
-                        id: user.uid,
+                        uid: user.uid,
                     })
                 );
             } else {

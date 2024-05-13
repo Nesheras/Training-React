@@ -4,12 +4,14 @@ import s from "./Search.module.css";
 import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 import { useGetSearchByKeywordQuery } from "../../../App/store/api/kinopoiskApi";
 import { useDebounce } from "../../../App/store/api/hooks/useDebouns";
+import { useHistory } from "../../../App/store/api/hooks/useHistory";
 
 export function Search() {
     const nav = useNavigate();
     const { search } = useParams();
     const [searchValue, setSearchValue] = useState(search);
     const debounse = useDebounce(searchValue, 500);
+    const { addToHistory } = useHistory();
 
     const { data, isLoading } = useGetSearchByKeywordQuery({
         query: debounse,
@@ -29,8 +31,9 @@ export function Search() {
 
     const handleGoToPageSearch = (e) => {
         e.preventDefault();
-        nav(`/search/${searchValue}`);
+        addToHistory({ id: searchValue });
         setShowSuggestions(false);
+        nav(`/search/${searchValue}`);
     };
     const handleFocus = () => setShowSuggestions(true);
     function handleBlur() {

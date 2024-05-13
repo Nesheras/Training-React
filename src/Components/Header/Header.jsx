@@ -10,7 +10,7 @@ import { auth } from "../../firebase";
 
 export function Header({ searchValue, setSearchValue }) {
     const dispatch = useDispatch();
-    const { isAuth, isLoading } = useAuth();
+    const { isAuth } = useAuth();
     function handlerLogOut() {
         auth.signOut();
         dispatch(removeUser());
@@ -26,7 +26,7 @@ export function Header({ searchValue, setSearchValue }) {
                         <Link to="/favorites">
                             <Button text={"Избранное"} />
                         </Link>
-                        <Link to="/">
+                        <Link to="/history">
                             <Button text={"История"} />
                         </Link>
                         <Button text={"Выйти"} handler={handlerLogOut} />
