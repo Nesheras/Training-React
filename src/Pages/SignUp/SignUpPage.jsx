@@ -33,7 +33,7 @@ export function SignUpPage() {
                 dispatch(
                     setUser({
                         email: user.email,
-                        id: user.uid,
+                        uid: user.uid,
                     })
                 );
             })
@@ -46,6 +46,7 @@ export function SignUpPage() {
         <div
             style={{
                 display: "flex",
+                flexDirection: "column",
                 justifyContent: "center",
                 marginTop: "150px",
                 background: "#504c44",
@@ -55,6 +56,8 @@ export function SignUpPage() {
                 borderRadius: "30px",
             }}
         >
+            {" "}
+            <h2 style={{ fontSize: "30px", marginTop: "20px" }}>Регистрация</h2>
             <Form
                 name="basic"
                 labelCol={{
@@ -65,7 +68,7 @@ export function SignUpPage() {
                 }}
                 style={{
                     maxWidth: 600,
-                    marginTop: 50,
+                    marginTop: 10,
                     marginRight: 80,
                     color: "white",
                 }}

@@ -39,6 +39,7 @@ export function SignInPage() {
         <div
             style={{
                 display: "flex",
+                flexDirection: "column",
                 justifyContent: "center",
                 marginTop: "150px",
                 background: "#504c44",
@@ -48,6 +49,7 @@ export function SignInPage() {
                 borderRadius: "30px",
             }}
         >
+            <h2 style={{ fontSize: "30px", marginTop: "20px" }}>Войти</h2>
             <Form
                 name="basic"
                 labelCol={{
@@ -58,7 +60,7 @@ export function SignInPage() {
                 }}
                 style={{
                     maxWidth: 600,
-                    marginTop: 50,
+                    marginTop: 10,
                     marginRight: 80,
                     color: "white",
                 }}
@@ -117,7 +119,7 @@ export function SignInPage() {
                     >
                         Войти
                     </Button>
-                    <p></p>
+
                     <Link to="/signup">
                         <p>Нет аккаунта?</p>
                     </Link>
