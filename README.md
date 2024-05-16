@@ -14,9 +14,9 @@
 
 - [x] Пишу функциональные **[компоненты](src/Components) c хуками в приоритете над классовыми.** 
 - [x] Есть разделение на **[умные](src/Components/Header/Search/Search.jsx) и **[глупые](src/Components/Input/Input.jsx)** компоненты 
-- [x] Есть рендеринг **[списков](src/pages/main/components/film-cards/film-cards.jsx)**
-- [x] Реализована хотя бы одна **[форма](src/components/UserForm/user-form.jsx)**
-- [x] Есть применение **[Контекст API](src/providers/theme-context.jsx)**
+- [x] Есть рендеринг **[списков](src/Components/CardContainer/CardContainer.jsx)**
+- [x] Реализована хотя бы одна **[форма](src/Pages/SignIn/SignInPage.jsx)**
+- [x] Есть применение **[Контекст API](src/App/store/api/Context.jsx)**
 - [x] Есть применение **[предохранителя](src/features/error-boundary.jsx)**
 - [x] Есть хотя бы один кастомный **[хук](src/hooks)**
 - [x] Хотя бы несколько компонентов используют PropTypes [suggests](src/components/Suggests/suggests.jsx) [history](src/pages/history/components/history-item.jsx)
