@@ -1,15 +1,18 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
 import { CardInfo } from "../Components/CardInfo/CardInfo";
-
-import FilmPage from "../Pages/FilmPage/FilmPage";
-import SearchPage from "../Pages/SearchPage/SearchPage";
-import { SignInPage } from "../Pages/SignIn/SignInPage";
-import { SignUpPage } from "../Pages/SignUp/SignUpPage";
 import { FavoritesPage } from "../Pages/FavouritesPage/FavoritesPage";
 import { PrivateRoute } from "./PrivateRoute";
-import { CardContainerInfo } from "../Components/CardInfo/CardContainerInfo";
 import HistoryPage from "../Pages/HistoryPage/HistoryPage";
+import { lazy } from "react";
+
+const FilmPage = lazy(() => import("../Pages/FilmPage/FilmPage"));
+const SearchPage = lazy(() => import("../Pages/SearchPage/SearchPage"));
+const SignInPage = lazy(() => import("../Pages/SignIn/SignInPage"));
+const SignUpPage = lazy(() => import("../Pages/SignUp/SignUpPage"));
+const CardContainerInfo = lazy(
+    () => import("../Components/CardInfo/CardContainerInfo")
+);
 
 export const router = createBrowserRouter([
     {

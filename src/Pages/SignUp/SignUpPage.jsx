@@ -9,11 +9,12 @@ import { Navigate } from "react-router-dom";
 import { auth } from "../../firebase";
 import { setUser } from "../../App/store/api/Slices/userSlices";
 
-export function SignUpPage() {
+export default function SignUpPage() {
     const { isAuth } = useAuth();
     const dispatch = useDispatch();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [err, setErr] = useState("");
     const onFinish = (values) => {
         console.log("Success:", values);
     };
@@ -37,7 +38,9 @@ export function SignUpPage() {
                     })
                 );
             })
-            .catch(console.error);
+            .catch((error) => {
+                setErr(error.message);
+            });
     }
 
     return isAuth ? (
@@ -129,6 +132,7 @@ export function SignUpPage() {
                     >
                         Зарегистрироваться
                     </Button>
+                    {err ? <p>{err}</p> : null}
                     <Link to="/signin">
                         <p>Уже есть аккаунт?Войдите</p>
                     </Link>

@@ -6,7 +6,7 @@ export function FavoritesPage() {
         return <h1>Загрузка....</h1>;
     }
     if (favorites.length === 0) {
-        return <div>Добавьте что-нибудь....</div>;
+        return <h2 style={{ fontSize: "40px" }}>Добавьте что-нибудь....</h2>;
     }
 
     return <CardContainer films={favorites} />;
