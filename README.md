@@ -20,7 +20,7 @@
 - [x] Есть применение **[предохранителя](src/App.jsx)**
 - [x] Есть хотя бы один кастомный **[хук](src/App/store/api/hooks)**
 - [x] Хотя бы несколько компонентов используют PropTypes [cardInfo](src/Components/CardInfo/CardInfo.jsx) [history](src/Components/History/HistoryElem.jsx)
-- [x] Поиск не триггерит много запросов к серверу [debounce](src/App/store/api/hooks/useDebounce.js) 
+- [x] Поиск не триггерит много запросов к серверу [debounce](src/App/store/api/hooks/useDebouns.js) 
 - [x] Есть применение [lazy](src/Router/Router.jsx) [suspense](src/main.jsx)
 
 
