@@ -21,14 +21,14 @@
 - [x] Есть хотя бы один кастомный **[хук](src/App/store/api/hooks)**
 - [x] Хотя бы несколько компонентов используют PropTypes [cardInfo](src/Components/CardInfo/CardInfo.jsx) [history](src/Components/History/HistoryElem.jsx)
 - [x] Поиск не триггерит много запросов к серверу [debounce](src/App/store/api/hooks/useDebounce.js) 
-- [x] Есть применение [lazy](src/App.jsx) [suspense](src/main.jsx)
+- [x] Есть применение [lazy](src/Router/Router.jsx) [suspense](src/main.jsx)
 
 
 - Redux
 
 - [x] Использую [Modern Redux with Redux Toolkit](src/App/store.js)
 - [x] Использую [слайсы](src/App/store/api/Slices)
-- [x] Есть хотя бы одна кастомная [мидлвара](src/App/store/api/logerMw.js)
+- [x] Есть хотя бы одна кастомная [мидлвара](src/App/store/api/middlewares/logerMw.js)
 - [x] Использую [RTK Query](src/App/store/api/kinopoiskApi.js)
 - [x] Использую [Transforming Responses](src/App/store/api/transformRespons/)
 
