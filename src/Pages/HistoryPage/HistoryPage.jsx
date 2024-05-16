@@ -1,16 +1,20 @@
 import React from "react";
 import { useHistory } from "../../App/store/api/hooks/useHistory";
 import { HistoryElem } from "../../Components/History/HistoryElem";
+import { removeHistory } from "../../App/store/api/Slices/HistorySlice";
+import { useDispatch } from "react-redux";
 
 function HistoryPage() {
-    const { history, removeHistory, isLoading } = useHistory();
+    const { history, removeHistorys, isLoading } = useHistory();
+    const dispatch = useDispatch();
 
     if (isLoading) {
-        return <h1>Загрузка</h1>;
+        return <h1>Загрузка...</h1>;
     }
 
     function handleRemoveHistory(search) {
-        removeHistory({
+        dispatch(removeHistory());
+        removeHistorys({
             id: search,
         });
     }

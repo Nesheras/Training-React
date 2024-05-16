@@ -50,7 +50,7 @@ export const useHistory = () => {
         }
     };
 
-    const removeHistory = async (historyEvent) => {
+    const removeHistorys = async (historyEvent) => {
         const history = ref(
             db,
             "users/" + user.id + "/history/" + historyEvent.id
@@ -63,5 +63,5 @@ export const useHistory = () => {
         }
     };
 
-    return { addToHistory, removeHistory, fetchHistory, history, isLoading };
+    return { addToHistory, removeHistorys, fetchHistory, history, isLoading };
 };

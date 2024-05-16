@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-
 import { auth } from "../../../../firebase";
 import { onAuthStateChanged } from "firebase/auth";
 import { useDispatch, useSelector } from "react-redux";
@@ -14,7 +13,7 @@ export const useInitialize = () => {
     const initializeSuccess = useSelector(selectInitializeSuccess);
 
     useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, async (user) => {
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
             if (user) {
                 dispatch(
                     setUser({
@@ -26,9 +25,14 @@ export const useInitialize = () => {
             } else {
                 dispatch(removeUser());
             }
+
             dispatch(initialize(true));
         });
-        return () => unsubscribe();
+
+        return () => {
+            unsubscribe();
+        };
     }, [dispatch, initialize, toggleAuth]);
+
     return initializeSuccess;
 };

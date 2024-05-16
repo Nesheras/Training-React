@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-
+import PropTypes from "prop-types";
 export const HistoryElem = ({ search, handleRemoveHistory, index }) => {
     return (
         <div style={{ display: "flex", gap: "20px", justifyContent: "center" }}>
@@ -26,4 +26,9 @@ export const HistoryElem = ({ search, handleRemoveHistory, index }) => {
             </button>
         </div>
     );
+};
+HistoryElem.propTypes = {
+    index: PropTypes.number,
+    search: PropTypes.string,
+    handleRemoveHistory: PropTypes.func,
 };

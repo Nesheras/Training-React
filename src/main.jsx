@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import { Provider } from "react-redux";
@@ -11,7 +11,9 @@ if (container) {
     ReactDOM.createRoot(container).render(
         <React.StrictMode>
             <Provider store={store}>
-                <RouterProvider router={router} />
+                <Suspense fallback={<h1>Загрузка страницы</h1>}>
+                    <RouterProvider router={router} />
+                </Suspense>
             </Provider>
         </React.StrictMode>
     );

@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { getDatabase, ref, set, remove, onValue } from "firebase/database";
-
 import { useDispatch, useSelector } from "react-redux";
 import { allFavorites, selectFavorites } from "../Slices/FavoritesSlice";
 import { useAuth } from "./useAuth";
@@ -16,6 +15,7 @@ export const useFavorites = () => {
     useEffect(() => {
         const fetchFavorites = () => {
             if (!user.isAuth) {
+                setIsLoading(false);
                 return;
             }
             const favoritesRef = ref(db, "users/" + user.id + "/favorites");
@@ -32,7 +32,6 @@ export const useFavorites = () => {
                 setIsLoading(false);
             });
         };
-
         fetchFavorites();
     }, [user.isAuth, triggerPopulate]);
 
