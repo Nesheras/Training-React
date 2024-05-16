@@ -13,7 +13,7 @@
 - React
 
 - [x] Пишу функциональные **[компоненты](src/Components) c хуками в приоритете над классовыми.** 
-- [x] Есть разделение на **[умные](src/Components/Header/Components/Search/search.jsx) и **[глупые](src/Components/Input/input.jsx)** компоненты 
+- [x] Есть разделение на **[умные](src/Components/Header/Search/Search.jsx) и **[глупые](src/Components/Input/Input.jsx)** компоненты 
 - [x] Есть рендеринг **[списков](src/pages/main/components/film-cards/film-cards.jsx)**
 - [x] Реализована хотя бы одна **[форма](src/components/UserForm/user-form.jsx)**
 - [x] Есть применение **[Контекст API](src/providers/theme-context.jsx)**
