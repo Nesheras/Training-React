@@ -3,8 +3,10 @@ import { CardFavorites } from "../Card/CardFavorites";
 import { Link } from "react-router-dom";
 import { useFavorites } from "../../App/store/api/hooks/useFavorites";
 import FavoriteButton from "../Button/favoriteButton";
+import { useAuth } from "../../App/store/api/hooks/useAuth";
 
 export function CardContainerFavorites({ films }) {
+    const { isAuth } = useAuth();
     const { addFavorite, removeFavorite, favorites, isLoading } =
         useFavorites();
 
@@ -19,13 +21,15 @@ export function CardContainerFavorites({ films }) {
                         <Link to={`/info/${item.id}`}>
                             <CardFavorites src={item.posterUrlPreview} />
                         </Link>
-                        <FavoriteButton
-                            addFavorite={addFavorite}
-                            removeFavorite={removeFavorite}
-                            favorites={favorites}
-                            data={item}
-                            id={item.id}
-                        />
+                        {isAuth ? (
+                            <FavoriteButton
+                                addFavorite={addFavorite}
+                                removeFavorite={removeFavorite}
+                                favorites={favorites}
+                                data={item}
+                                id={item.id}
+                            />
+                        ) : null}
                     </div>
                 );
             })}

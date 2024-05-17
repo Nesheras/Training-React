@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useGetSearchByKeywordQuery } from "../../App/store/api/kinopoiskApi";
-import { CardContainer } from "../../Components/CardContainer/CardContainer";
+import { CardContainerFavorites } from "../../Components/CardContainer/CardContainerFavorites";
 
 export default function SearchPage() {
     const { search } = useParams();
@@ -13,7 +13,7 @@ export default function SearchPage() {
 
         return films[0] ? (
             <>
-                <CardContainer films={films} />
+                <CardContainerFavorites films={films} />
             </>
         ) : (
             <h1>Результаты по поиску отсутствуют</h1>

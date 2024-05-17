@@ -1,5 +1,5 @@
-import { CardContainer } from "../../Components/CardContainer/CardContainer";
 import { useGetTopFilmsQuery } from "../../App/store/api/kinopoiskApi";
+import { CardContainerFavorites } from "../../Components/CardContainer/CardContainerFavorites";
 
 export default function FilmPage() {
     const { data = [], isLoading } = useGetTopFilmsQuery();
@@ -7,5 +7,5 @@ export default function FilmPage() {
         return <div>Loading.....</div>;
     }
 
-    return <CardContainer films={data} />;
+    return <CardContainerFavorites films={data} />;
 }
