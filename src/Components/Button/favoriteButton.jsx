@@ -1,9 +1,8 @@
 import { useState } from "react";
 
 import styleButton from "./Button.module.css";
-import { useDispatch } from "react-redux";
+
 function FavoriteButton({ id, data, favorites, addFavorite, removeFavorite }) {
-    const dispatch = useDispatch();
     const [isFavorite, setIsFavorite] = useState(
         favorites?.some((item) => item.id === data.id)
     );

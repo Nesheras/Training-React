@@ -1,4 +1,4 @@
-import { CardContainer } from "../../Components/CardContainer/CardContainer";
+import { CardContainerFavorites } from "../../Components/CardContainer/CardContainerFavorites";
 import { useFavorites } from "../../App/store/api/hooks/useFavorites";
 export function FavoritesPage() {
     const { favorites, isLoading } = useFavorites();
@@ -9,5 +9,5 @@ export function FavoritesPage() {
         return <h2 style={{ fontSize: "40px" }}>Добавьте что-нибудь....</h2>;
     }
 
-    return <CardContainer films={favorites} />;
+    return <CardContainerFavorites films={favorites} />;
 }

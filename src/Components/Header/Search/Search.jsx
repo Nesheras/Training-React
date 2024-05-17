@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Input } from "../../Input/Input";
 import s from "./Search.module.css";
-import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useGetSearchByKeywordQuery } from "../../../App/store/api/kinopoiskApi";
 import { useDebounce } from "../../../App/store/api/hooks/useDebouns";
 import { useHistory } from "../../../App/store/api/hooks/useHistory";
@@ -12,6 +12,10 @@ export function Search() {
     const [searchValue, setSearchValue] = useState(search);
     const debounse = useDebounce(searchValue, 500);
     const { addToHistory } = useHistory();
+
+    useEffect(() => {
+        setSearchValue(search);
+    }, [search]);
 
     const { data, isLoading } = useGetSearchByKeywordQuery({
         query: debounse,

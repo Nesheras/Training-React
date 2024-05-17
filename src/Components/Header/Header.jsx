@@ -8,16 +8,17 @@ import { useDispatch } from "react-redux";
 import { removeUser } from "../../App/store/api/Slices/userSlices";
 import { auth } from "../../firebase";
 import { useThemeContext } from "../../App/store/api/Context";
+import { logout } from "../../App/store/api/Actions/UserActions";
 
 export function Header({ searchValue, setSearchValue }) {
     const dispatch = useDispatch();
     const { headerColor, changeHeaderColor } = useThemeContext();
 
     const { isAuth } = useAuth();
-    function handlerLogOut() {
-        auth.signOut();
+    const handlerLogOut = async () => {
+        await logout();
         dispatch(removeUser());
-    }
+    };
 
     return (
         <div

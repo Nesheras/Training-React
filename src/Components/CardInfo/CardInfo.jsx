@@ -20,7 +20,6 @@ export function CardInfo({ data, nameRu, description, posterUrlPreview, id }) {
                 <p>{description}</p>
                 {isAuth ? (
                     <FavoriteButton
-                        isLoading={isLoading}
                         addFavorite={addFavorite}
                         removeFavorite={removeFavorite}
                         favorites={favorites}

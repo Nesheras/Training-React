@@ -1,6 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
-import { CardInfo } from "../Components/CardInfo/CardInfo";
 import { FavoritesPage } from "../Pages/FavouritesPage/FavoritesPage";
 import { PrivateRoute } from "./PrivateRoute";
 import HistoryPage from "../Pages/HistoryPage/HistoryPage";
